@@ -1,0 +1,44 @@
+<body>
+<script>
+function myMap() {
+  var myLatLng = {lat: 68.161102, lng: 24.119228};
+
+var mapProp= {
+ center:myLatLng,
+ zoom:14,
+ mapTypeId: 'terrain'
+};
+
+var map = new google.maps.Map(document.getElementById("cabinMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position:myLatLng,
+  map:map,
+  title:"Hommalinna",
+});
+
+marker.setMap(map);
+
+var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hommalinna</h1>'+
+            '<div id="bodyContent">'+
+            '<p><a href="https://www.google.com/maps/place/Hommalinna/@68.1612841,24.1185944,17z/data=!3m1!4b1!4m5!3m4!1s0x45d224356086f631:0x7856939aa56c5e6!8m2!3d68.1612841!4d24.1207832">'+
+            'Navigoi</a> '+
+            '</div>'+
+            '</div>';
+
+var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+marker.addListener('click', function(){
+    infowindow.open(map, marker);
+  });
+
+}
+
+marker.setMap(map);
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYYFC1Ne2p6q3454Hyvwm04GQIwQFWXSk&callback=myMap"></script>

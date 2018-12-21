@@ -1,0 +1,37 @@
+<head>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+</head>
+<body>
+    <script>
+     mapboxgl.accessToken = "{{cabin_location.token}}";
+     var map = new mapboxgl.Map({
+      center: [24.119228,
+ 	      68.161102],
+      container: 'cabinMap',
+      style: 'mapbox://styles/viljami/cjpv3noft0xaj2rlt3ib9d4d4',
+
+      zoom: 14.0
+
+     });
+     map.addControl(new mapboxgl.NavigationControl());
+     map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['hommalinna-places'] // replace this with the name of the layer
+      });
+
+      if (!features.length) {
+        return;
+      }
+
+      var feature = features[0];
+
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description  + '</p>')
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+});
+  </script>
+  </body>

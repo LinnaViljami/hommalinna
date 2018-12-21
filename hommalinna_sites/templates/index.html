@@ -1,0 +1,19 @@
+{% include 'partials/header.html' %}
+<a href="/hommalinna_sites"> Go Back</a>
+<ul>
+  {% for msg in visitorMessages %}
+    <li>{{msg.title}}: {{msg.text}}</li>
+  {% endfor %}
+</ul>
+<form action="{% url 'add' %}" method="post">
+{% csrf_token %}
+  <label for="title">Title</label><br/>
+  <input type="text" name="title" id="title">
+  <br>
+  <label for="text">Text</label><br/>
+  <textarea name="text" id="text"></textarea>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+<br>
+{% include 'partials/footer.html' %}
