@@ -14,12 +14,13 @@ a{
   text-decoration: none;
 }
 h2{
+  color: #1a1a1a;
   font-size: calc(20px + 1vw);
 }
 
 .text{
   font-size: calc(8px + .8vw);
-  background-color:#d0d0e1;
+  background:rgba(255,255,255,0.3);
   padding:1vw;
 }
 
@@ -70,7 +71,7 @@ h2{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-
+  min-height: 60vw;
   background-image: url("/static/images/taustakuva.jpg");
   background-position: left top;
   background-size: cover;
@@ -86,6 +87,14 @@ h2{
 .side {
   flex: 30%;
   padding: 20px;
+}
+
+.side a{
+  color: #424459;
+}
+
+.side a:hover{
+  font-weight: bold;
 }
 
 /* Main column */
@@ -110,12 +119,19 @@ h2{
 
 #cabinMap{
   background-color: #aaa;
+  min-height: 20vw;
   height: 40%;
   position:  relative;
   top: 0;
   bottom: 0;
   }
 
+.sideBox {
+  min-height:20%;
+  background:rgba(255,255,255,0.3);
+  padding:20px;
+  text-align:center;
+}
 /* Footer */
 .footer {
   padding: 20px;
@@ -126,6 +142,6 @@ h2{
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row, .navbarContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
