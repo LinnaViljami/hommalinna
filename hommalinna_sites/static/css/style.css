@@ -70,6 +70,12 @@ h2{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
+
+  background-image: url("/static/images/taustakuva.jpg");
+  background-position: left top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .clearfix{
@@ -79,15 +85,19 @@ h2{
 /* Sidebar/left column */
 .side {
   flex: 30%;
-  background-color: #e0e0eb;
   padding: 20px;
 }
 
 /* Main column */
 .main {
   flex: 70%;
-  background-color: #efeff5;
   padding: 20px;
+
+}
+
+.bottomBar {
+  text-align: center;
+  color: white;
 }
 
 /* Fake image, just for this example */
