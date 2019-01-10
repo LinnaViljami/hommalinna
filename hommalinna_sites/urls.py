@@ -10,5 +10,6 @@ urlpatterns = [
         url(r'^cabin/', views.cabin, name='cabin'),
         url(r'^landscape/', views.landscape, name='landscape'),
         url(r'^guestbook/', views.guestbook, name='guestbook'),
-        url(r'^gmaps/', views.gmaps, name="gmaps")
+        url(r'^gmaps/', views.gmaps, name="gmaps"),
+        url(r'^index/', views.index, name="index")
 ]

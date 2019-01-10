@@ -1,5 +1,9 @@
+<!DOCTYPE html>
 {% include 'partials/header.html' %}
+
 <body>
+  {% load i18n %}
+  {% get_current_language as LANGUAGE_CODE %}
 <div class="header backgroundImage clearfix">
   <h1>Hommalinna</h1>
   <p>- keskellä <b>puhtainta</b> luontoa - </p>
@@ -35,8 +39,18 @@
     <div class="fakeimg" style="height:60px;">Image</div>
   </div>
   <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
+    <h2>Hommalinna</h2>
+    <div class="text">
+      {% blocktrans trimmed %}
+      Hommalinna on 2016 valmistunut kahden huoneiston mökki
+      Hommajärven rannalla lähellä tuntureita, Lapin erämaan laidalla.
+      Täällä ilma on tutkitusti Euroopan puhtainta ja lapin lumoavat maisemat
+      avautuvat heti ikkunoiden takana.
+      Reitti tunturiin lähtee lähes pihasta.
+      Vastaa tuntureiden kutsuun, pakkaa reppusi ja lähde patikoimaan tai hiihtämään.
+    {% endblocktrans %}
+    </div>
+    <h5></h5>
     <div class="fakeimg" style="height:200px;">Image</div>
     <p>Some text..</p>
     <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>

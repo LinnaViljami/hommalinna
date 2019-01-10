@@ -10,16 +10,23 @@ body {
 
 a{
   font-family: Georgia;
-  font-size: 150%;
+  font-size: calc(100% + .5vw);
   text-decoration: none;
 }
 h2{
-  font-size: 200%;
+  font-size: calc(20px + 1vw);
+}
+
+.text{
+  font-size: calc(8px + .8vw);
+  background-color:#d0d0e1;
+  padding:1vw;
 }
 
 /* Header/logo Title */
 .header {
-  fon
+
+  font-size: calc(100% + .5vw);
   padding: 60px;
   text-align: center;
   background-image: url("/static/images/maisemaa5.jpg");
@@ -44,7 +51,7 @@ h2{
 .navbar a {
   border: 0.1vw inset;
   border-color: #7575a3;
-  font-size: 2vw;
+  font-size: calc(80% + .8vw);
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
