@@ -1,37 +1,66 @@
-<head>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-</head>
+<!DOCTYPE html>
+{% include 'partials/header.html' %}
+
 <body>
-    <script>
-     mapboxgl.accessToken = "{{cabin_location.token}}";
-     var map = new mapboxgl.Map({
-      center: [24.119228,
- 	      68.161102],
-      container: 'cabinMap',
-      style: 'mapbox://styles/viljami/cjpv3noft0xaj2rlt3ib9d4d4',
+  {% load i18n %}
+  {% get_current_language as LANGUAGE_CODE %}
+<div class="header backgroundImage clearfix">
+  <h1>Hommalinna</h1>
+  <p>- keskellä <b>puhtainta</b> luontoa - </p>
+</div>
 
-      zoom: 14.0
+<!-- Navigation Bar -->
+<div class="navbarContainer navbar">
+  <a class="navLink" href="#">Etusivu</a>
+  <a href="#">Mökki</a>
+  <a href="#">Aktiviteetit</a>
+  <a href="#">Maisema</a>
+  <a href="#">Vieraskirja</a>
+  <a href="#">ENGLISH</a>
+</div>
 
-     });
-     map.addControl(new mapboxgl.NavigationControl());
-     map.on('click', function(e) {
-      var features = map.queryRenderedFeatures(e.point, {
-        layers: ['hommalinna-places'] // replace this with the name of the layer
-      });
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="side">
+    <div id='cabinMap' style="max-width:100%;"></div>
+    <br>
+    <div class="sideBox">
+        <h2>Rent the cabin</h2>
+        <a href="/hommalinna_sites/cabin"> Hommalinna A</a>
+        <br>
+        <a href="/hommalinna_sites/cabin"> Hommalinna B</a>
+    </div>
+  </div>
+  <div class="main">
+    <h2>Hommalinna</h2>
+    <div class="text">
+      {% blocktrans trimmed %}
+      Hommalinna sijaitsee Hetta-Pallaksen tunturiketjun puolivälissä Ylikyrössä, Hommakankaan alueella. Mökin välittömässä läheisyydessä on pieni Hommajärvi, jonka takaa avautuu upea tunturimaisema.
+      <br>
+      <br>
 
-      if (!features.length) {
-        return;
-      }
+      Pallaksen alueella ympäröivän maaston ja tunturihuippujen välinen korkeusero on suuri, mistään muualta Suomesta ei löydy yhtä suuria korkeuseroja. Useiden kerojen huiput ulottuvat 700-800 metrin korkeuteen. Jyhkeät huiput vetävät vastustamattomasti puoleensa.
+      <br>
+      <br>
 
-      var feature = features[0];
+      Tunturiin mun mennä täytyy, sinne veri vetää….
+      <br>
+      <br>
 
-      var popup = new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description  + '</p>')
-        .setLngLat(feature.geometry.coordinates)
-        .addTo(map);
-});
-  </script>
-  </body>
+      Nuo Yrjö Jylhän runon säkeet ovat usein mielessä Hommakankaalla, kun tunturien lumo saa kerta toisensa jälkeen pakkaamaan reppuun evästä ja vaatetta, kiinnittämään sukset jalkaan ja lähtemään liikkeelle kohti valkoisia huippuja. Tai keväällä ihmettelemään, kuinka lumen alta paljastuu varpuja, jotka saman tien alkavat kukkimaan. Kesällä kuuntelemaan kapustarinnan haikeaa laulua, järripeipon pärinää, riekkojen ja kiirunoiden päkätystä ja välillä sääskien ininää, joka tosin huipulla hiljenee. Ja syksyllä tunturien matalat kasvit puhkeavat uskomattomaan väriloistoon, kunnes ensilumi peittää härmällään varpujen ruskan. Reppuun on aina pakattava myös hieman ylimääräistä vaatetta ja evästä. Tunturissa sää vaihtuu nopeasti ja aina on syytä varautua myös siihen, että tunturien lumo vetää puoleensa kauemmin kuin on etukäteen suunnitellut.
+      <br>
+      <br>
+
+      Aamurusko ja iltarusko saavat tunturit joskus hehkumaan uskomattomissa sävyissä. Puhumattakaan kaamoksen sinisestä hämärästä tai revontulien leimusta hiljaisten huippujen yllä kuulakkaassa pakkasessa.
+      <br>
+      <br>
+
+      Tässä muutamia makupaloja tunturien rinteiltä, Hommajärven rannalta ja Vuontisjärveltä kuvattuna.
+      {% endblocktrans %}
+    </div>
+  </div>
+</div>
+    {% include 'gmaps.html' %}
+</body>
+
+{% include 'partials/footer.html' %}

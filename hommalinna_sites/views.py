@@ -33,7 +33,7 @@ def landscape(request):
     context = {
         'cabin_location' : cabin_location
     }
-    return render(request, 'home.html', context)
+    return render(request, 'landscape.html', context)
 
 def cabin(request):
     cabin_location = Location.objects.get(name='hommalinna')
